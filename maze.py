@@ -10,7 +10,7 @@ class StackFrontier():
     def __init__(self):
         self.frontier=[] #Empty list
 
-    def add(self, node):  #adding somrthing to a frontier
+    def add(self, node):  #adding something to a frontier
         self.frontier.append(node)
 
     def contains_state(self, state): #checking whether a particular state already exits in frontier
@@ -40,3 +40,16 @@ class QueueFrontier(StackFrontier): #inheriting from StackFrontier
         return node
 
 
+class Maze(): #handle the process of taking a swquence a maze like text
+    def __init__(self, filename):
+        #Read file and set height and width of maze
+        with open(filename) as f:
+            contents=f.read()
+        #validate start and goal
+        if contents.count("A")!=1: #A representing starting position
+            raise Exception("Maze must have exactly one start point")
+        if contents.count("B") !=1: #B representing as ending position
+            raise Exception("maze must have exactly one goal")
+
+
+    
