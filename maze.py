@@ -26,7 +26,17 @@ class StackFrontier():
         if self.empty():
             raise Exception("Empty Frontier")
         else:
-            node= self.frontier[-1] #last item
-            self.frontier=self.frontier[:-1] 
+            node= self.frontier[-1] #last item (end of the list)
+            self.frontier=self.frontier[:-1] #remove the last item
             return node
+
+
+class QueueFrontier(StackFrontier): #inheriting from StackFrontier
+    def remove(self):
+        if self.empty():
+            raise Exception ("Empty frontier")
+        else: node=self.frontier[0] #first node
+        self.frontier=self.frontier[1:] #remove beginning of the list
+        return node
+
 
