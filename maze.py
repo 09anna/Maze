@@ -8,10 +8,13 @@ class Node():
 
 class StackFrontier():
     def __init__(self):
-        self.frontier=[] #list
+        self.frontier=[] #Empty list
 
     def add(self, node):
         self.frontier.append(node)
 
-    def contains_state(self, state):
-        
+    def contains_state(self, state): #checking whether a particular state already exits in frontier
+        for node in self.frontier:
+            if node.state==state:
+                return True
+        return False
